@@ -41,6 +41,4 @@ function openSpotifyPlayer(track_id) {
    document.getElementById('spotify-player-container').classList.add('visible');
 }
 
- 
-
 
