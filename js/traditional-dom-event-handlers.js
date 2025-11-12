@@ -9,6 +9,7 @@ var record_card3 = record_cards[2];
 var close_btn = document.getElementById('close-player');
 
 
+
 /* 
   TO DO: 
   
@@ -33,3 +34,47 @@ var close_btn = document.getElementById('close-player');
          document.getElementById('spotify-player-container').classList.remove('visible');
       
 */
+
+
+
+record_card2.onclick = function () {
+   // Get the Spotify track id of the song saved as its attribute
+   var track_id = record_card2.getAttribute('data-track-id');
+            
+   // Get the iframe element that contains the Spotify embedded player
+   var player_iframe = document.getElementById('spotify-player');
+            
+   // Update the iframe source to the clicked track
+   player_iframe.src = `https://open.spotify.com/embed/track/${track_id}`;;
+            
+   // Show and animate the player
+   document.getElementById('spotify-player-container').classList.add('visible'); 
+}
+
+record_card3.onclick = function() {
+   // Get the Spotify track id of the song saved as its attribute
+   var track_id = record_card3.getAttribute('data-track-id');
+            
+   // Get the iframe element that contains the Spotify embedded player
+   var player_iframe = document.getElementById('spotify-player');
+            
+   // Update the iframe source to the clicked track
+   player_iframe.src = `https://open.spotify.com/embed/track/${track_id}`;;
+            
+   // Show and animate the player
+   document.getElementById('spotify-player-container').classList.add('visible'); 
+}
+
+
+function closePlayer() {
+   // Close the Spotify embedded player by changing its visibility 
+   document.getElementById('spotify-player-container').classList.remove('visible');
+}
+
+
+close_btn.onclick = closePlayer;
+
+
+
+
+

@@ -4,7 +4,6 @@ var record_cards = document.querySelectorAll('.record-card');
 // Get the close button of the Spotify embedded player
 var close_btn = document.getElementById('close-player');
 
-
 /* 
   TO DO: 
   
@@ -19,3 +18,39 @@ var close_btn = document.getElementById('close-player');
          to close the Spotify embedded player. 
       
 */
+
+
+function openSpotifyPlayer(track_id) {
+   // Get the iframe element that contains the Spotify embedded player
+   var player_iframe = document.getElementById('spotify-player');
+
+   // Update the iframe source to the clicked track
+   player_iframe.src = `https://open.spotify.com/embed/track/${track_id}`;
+
+   // Show and animate the player
+   document.getElementById('spotify-player-container').classList.add('visible');
+}
+
+function closeSpotifyPlayer() {
+   // Close the Spotify embedded player by changing its visibility
+   document.getElementById('spotify-player-container').classList.remove('visible');
+}
+
+for(var i = 3; i <= 5; i++) {
+   console.log("hi");
+   var record = record_cards[i];
+
+   //get the spotify track id of the song 
+   let track_id = record.getAttribute('data-track-id');
+
+   //add event listenr to each record
+   record.addEventListener('click', function() 
+   {openSpotifyPlayer(track_id);}, false);
+}
+
+close_btn.addEventListener('click', closeSpotifyPlayer, false);
+
+
+
+
+
